@@ -1,0 +1,210 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} SPMS{% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block sidebar %} {% include 'includes/studentsidebar.html' %} {% endblock %}
+
+{% block content %}
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-chart">
+          <div class="card-header ">
+            <div class="row">
+              <div class="col-sm-6 text-left">
+                <h2 class="card-title"><i class="tim-icons icon-chart-bar-32 text-info"></i>PLO Achievement</h2>
+              </div>
+            </div>
+          </div>
+          <div class="card-body" style="height:450px;" >
+            <div class="chart-area">
+                <canvas id="ploperformance" height="100%"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h3 class="card-title"><i class="tim-icons icon-atom text-primary"></i> GPA Performance</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="gpatrend" height="100%"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h3 class="card-title"><i class="tim-icons icon-chart-bar-32 text-warning"></i>PLO Analysis</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="right" height="100%"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
+
+
+
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+ <script>
+   var ctx = document.getElementById("ploperformance").getContext("2d");
+    colors =  ['#5CC8D7FF','#00539CFF','#EEA47FFF','#2C5F2D','#97BC62FF','#CE4A7EFF','#FC766AFF','#603F83FF','#006D77'
+        ,'#E29578','#264653','#81b29a','#8d99ae']
+
+    var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
+    gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
+    gradientStroke.addColorStop(0, 'rgba(29,140,248,0)');
+
+
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      responsive: true,
+      legend: {
+        display: false
+      },
+      data: {
+        labels: {{plolabel1|safe}},
+        datasets: [{
+          label: 'PLO Percentage',
+          fill: true,
+          backgroundColor: gradientStroke,
+          hoverBackgroundColor: gradientStroke,
+          borderColor: '#5CC8D7FF',
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          data: {{plodata1|safe}},
+        }]
+      },
+       options: {
+          scales: {
+              xAxes: [{
+                  stacked: true,
+                  gridLines: {
+                      display: false,
+                  }
+              }],
+              yAxes: [{
+                  stacked: true,
+                  ticks: {
+                      beginAtZero: true,
+                      max:100,
+                  },
+                  type: 'linear',
+              }]
+          },
+
+          responsive: true,
+      }
+    });
+
+    var ctx = document.getElementById("gpatrend").getContext("2d");
+
+    var gradientStroke1 = ctx.createLinearGradient(0, 230, 0, 50);
+    gradientStroke1.addColorStop(1, 'rgba(72,72,176,0.2)');
+    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke1.addColorStop(0, 'rgba(119,52,169,0)'); //purple colors
+
+    var gradientStroke2 = ctx.createLinearGradient(0,0, 200,200);
+    gradientStroke2.addColorStop(0, 'red');
+    gradientStroke2.addColorStop(.5, 'blue');
+    gradientStroke2.addColorStop(1, 'green');
+
+
+
+    var data = {
+      labels: {{gpalabel1|safe}},
+      datasets: [{
+        label: "Individual",
+        backgroundColor: '#5CC8D7FF',
+        fill: false,
+        borderColor: '#5CC8D7FF',
+        data: {{gpadata1}}
+        },
+        {
+        label: "Department Average",
+        backgroundColor: '#00539CFF',
+        fill: false,
+        borderColor: '#00539CFF',
+        data: {{gpadata2}}
+      }]
+    };
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: {
+          scales: {
+              xAxes: [{
+                  gridLines: {
+                      display: false,
+                  }
+              }],
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      max:4,
+                  },
+                  type: 'linear',
+              }]
+          },
+
+          responsive: true,
+          maintainAspectRatio: true
+      }
+    });
+
+
+  var ctx = document.getElementById('right').getContext('2d');
+  var data = {
+          labels: {{plolabel1|safe}},
+          datasets: [{
+              label: 'Individual',
+              data: {{plodata1}},
+              backgroundColor: '#EEA47FFF',
+          },
+          {
+              label: 'Dept Average',
+              data: {{plodata2}},
+              backgroundColor: '#2C5F2D',
+          }
+          ]
+      };
+
+    var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+        barValueSpacing: 30,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    max:100,
+                }
+            }]
+        }
+    }
+});
+ </script>
+
+{% endblock javascripts %}

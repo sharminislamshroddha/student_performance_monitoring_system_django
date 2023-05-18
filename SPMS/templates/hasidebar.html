@@ -1,0 +1,178 @@
+
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+
+        <ul class="nav">
+
+          <li class="{% if 'fadash' == segment %} active {% endif %} ">
+            <a href="/">
+              <i class="tim-icons icon-world"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <!-- Funtionality number 2 start -->
+          <li class="{% if 'GPA Analysis' == segment %} active {% endif %}">
+            <a  data-toggle="collapse" href="#gpa">
+              <i class="tim-icons icon-atom"></i>
+              <p>Course Wise PLO Trend
+                <b class="caret"></b>
+              </p>
+
+            </a>
+            <div class="collapse" id="gpa">
+              <ul class="nav">
+
+                <!-- 2c -->
+                <li>
+                  <a href="{% url 'cgpa' %}">
+                    <span class="sidebar-mini-icon">C</span>
+                    <span class="sidebar-normal">Course Wise</span>
+                  </a>
+                </li>
+                <!-- 2b -->
+                <li>
+                  <a href="{% url 'igpa' %}">
+                     <span class="sidebar-mini-icon">I</span>
+                    <span class="sidebar-normal">PLO Wise Achievement</span>
+                  </a>
+                </li>
+
+                <!-- 2a -->
+                <li>
+                  <a href="{% url 'cigpa' %}">
+                     <span class="sidebar-mini-icon">I</span>
+                    <span class="sidebar-normal">Instructor Wise For A Course</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+           <!-- Funtionality number 2 end -->
+
+          
+           <!-- Funtionality number 1 start -->
+          <li class="{% if 'PLO Analysis' == segment %} active {% endif %}">
+            <a  data-toggle="collapse" href="#plo">
+              <i class="tim-icons icon-chart-bar-32"></i>
+              <p>PLO stats of a student
+                <b class="caret"></b>
+              </p>
+
+            </a>
+            <div class="collapse" id="plo">
+              <ul class="nav">
+                <!-- 1a -->
+                <li>
+                  <a href="{% url 'stplo' %}">
+                     <span class="sidebar-mini-icon">S</span>
+                    <span class="sidebar-normal">Course Wise</span>
+                  </a>
+                </li>
+                <li>
+                  <!-- 1b -->
+                  <a href="{% url 'pplo' %}">
+                    <span class="sidebar-mini-icon">C</span>
+                    <span class="sidebar-normal">Program Wise</span>
+                  </a>
+                </li>
+                <!-- 1c -->
+                <li>
+                  <a href="{% url 'dplo' %}">
+                     <span class="sidebar-mini-icon">I</span>
+                    <span class="sidebar-normal">All  Achieved & Failed PLOs</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+           <!-- Funtionality number 1 end -->
+
+          <!-- Funtionality number 3 start -->
+           <li class="{% if 'PLO Comp' == segment %} active {% endif %}">
+            <a  data-toggle="collapse" href="#plocomp">
+              <i class="tim-icons icon-molecule-40"></i>
+              <p> Program wise PLO Comparison
+                <b class="caret"></b>
+              </p>
+
+            </a>
+            <div class="collapse" id="plocomp">
+              <ul class="nav">
+                <!-- 3 b c -->
+                <li>
+                  <a href="{% url 'stcomp' %}">
+                     <span class="sidebar-mini-icon">S</span>
+                    <span class="sidebar-normal">Student</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'ccomp' %}">
+                    <span class="sidebar-mini-icon">C</span>
+                    <span class="sidebar-normal">Course</span>
+                  </a>
+                </li>
+               <!-- 3a -->
+                <li>
+                  <a href="{% url 'pcomp' %}">
+                     <span class="sidebar-mini-icon">P</span>
+                    <span class="sidebar-normal">Program</span>
+                  </a>
+                </li>
+                <li>
+                   <!-- Funtionality number 3 end -->
+              </ul>
+            </div>
+          </li>
+              <!-- Funtionality number 4 start -->
+          <li class="{% if 'plostats' == segment %} active {% endif %}">
+            <a  data-toggle="collapse" href="#plostats">
+              <i class="tim-icons icon-puzzle-10"></i>
+              <p>University Wise PLO Trend
+                <b class="caret"></b>
+              </p>
+
+            </a>
+            <div class="collapse" id="plostats">
+              <ul class="nav">
+                <!-- 4a -->
+                <li>
+                  <a href="{% url 'pplostats' %}">
+                     <span class="sidebar-mini-icon">P</span>
+                    <span class="sidebar-normal">Program PLO Comparison</span>
+                  </a>
+                </li>
+                </li>
+                <!-- 4b -->
+                <li>
+                  <a href="{% url 'dplostats' %}">
+                     <span class="sidebar-mini-icon">D</span>
+                    <span class="sidebar-normal">Graduates PLO Achievement</span>
+                  </a>
+                </li>
+                </li>
+                <!-- 4c -->
+                <li>
+                  <a href="{% url 'splostats' %}">
+                     <span class="sidebar-mini-icon">S</span>
+                    <span class="sidebar-normal">All PLO Performance</span>
+                  </a>
+                </li>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+
+           <li>
+            <a href="{% url 'logoutpage' %}" >
+              <i class="tim-icons icon-user-run"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+
+                    
+        </ul>
+      </div>
+    </div>
+

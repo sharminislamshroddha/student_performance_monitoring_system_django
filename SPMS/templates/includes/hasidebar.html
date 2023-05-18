@@ -1,0 +1,241 @@
+
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+
+        <ul class="nav">
+
+          <li class="{% if 'fadash' == segment %} active {% endif %} ">
+            <a href="/">
+              <i class="tim-icons icon-world"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="{% if 'enrollment' == segment %} active {% endif %}">
+            <a href="{% url 'enrollment' %}">
+              <i class="tim-icons icon-chart-pie-36"></i>
+              <p>Student Enrollment</p>
+            </a>
+          </li>
+          <li class="{% if 'GPA Analysis' == segment %} active {% endif %}">
+            <a  data-toggle="collapse" href="#gpa">
+              <i class="tim-icons icon-atom"></i>
+              <p>GPA Analysis
+                <b class="caret"></b>
+              </p>
+
+            </a>
+            <div class="collapse" id="gpa">
+              <ul class="nav">
+                <li>
+                  <a href="{% url 'sgpa' %}">
+                     <span class="sidebar-mini-icon">S</span>
+                    <span class="sidebar-normal">Department/Program/School Wise</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'cgpa' %}">
+                    <span class="sidebar-mini-icon">C</span>
+                    <span class="sidebar-normal">Course Wise</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'igpa' %}">
+                     <span class="sidebar-mini-icon">I</span>
+                    <span class="sidebar-normal">Instructor Wise</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'lgpa' %}">
+                     <span class="sidebar-mini-icon">H</span>
+                    <span class="sidebar-normal">Head/Dean/VC Wise</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'cigpa' %}">
+                     <span class="sidebar-mini-icon">I</span>
+                    <span class="sidebar-normal">Instructor Wise For A Course</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="{% if 'PLO Analysis' == segment %} active {% endif %}">
+            <a  data-toggle="collapse" href="#plo">
+              <i class="tim-icons icon-chart-bar-32"></i>
+              <p>PLO Analysis
+                <b class="caret"></b>
+              </p>
+
+            </a>
+            <div class="collapse" id="plo">
+              <ul class="nav">
+                <li>
+                  <a href="{% url 'stplo' %}">
+                     <span class="sidebar-mini-icon">S</span>
+                    <span class="sidebar-normal">Student</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'pplo' %}">
+                    <span class="sidebar-mini-icon">C</span>
+                    <span class="sidebar-normal">Program</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'dplo' %}">
+                     <span class="sidebar-mini-icon">I</span>
+                    <span class="sidebar-normal">Department</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'splo' %}">
+                     <span class="sidebar-mini-icon">H</span>
+                    <span class="sidebar-normal">School</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+           <li class="{% if 'PLO Comp' == segment %} active {% endif %}">
+            <a  data-toggle="collapse" href="#plocomp">
+              <i class="tim-icons icon-molecule-40"></i>
+              <p>PLO Comparison
+                <b class="caret"></b>
+              </p>
+
+            </a>
+            <div class="collapse" id="plocomp">
+              <ul class="nav">
+                <li>
+                  <a href="{% url 'stcomp' %}">
+                     <span class="sidebar-mini-icon">S</span>
+                    <span class="sidebar-normal">Student</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'ccomp' %}">
+                    <span class="sidebar-mini-icon">C</span>
+                    <span class="sidebar-normal">Course</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'pcomp' %}">
+                     <span class="sidebar-mini-icon">P</span>
+                    <span class="sidebar-normal">Program</span>
+                  </a>
+                </li>
+                <li>
+                <li>
+                  <a href="{% url 'dcomp' %}">
+                     <span class="sidebar-mini-icon">D</span>
+                    <span class="sidebar-normal">Department</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'scomp' %}">
+                     <span class="sidebar-mini-icon">S</span>
+                    <span class="sidebar-normal">School</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+
+
+           <li class="{% if 'PLO-CO' == segment %} active {% endif %}">
+            <a  data-toggle="collapse" href="#ploco">
+              <i class="tim-icons icon-notes"></i>
+              <p>PLO & CO Report
+                <b class="caret"></b>
+              </p>
+
+            </a>
+            <div class="collapse" id="ploco">
+              <ul class="nav">
+                <li>
+                  <a href="{% url 'creport' %}">
+                     <span class="sidebar-mini-icon">C</span>
+                    <span class="sidebar-normal">Course</span>
+                  </a>
+                </li>
+                </li>
+                <li>
+                  <a href="{% url 'preport' %}">
+                     <span class="sidebar-mini-icon">P</span>
+                    <span class="sidebar-normal">Program</span>
+                  </a>
+                </li>
+                </li>
+                <li>
+                  <a href="{% url 'dreport' %}">
+                     <span class="sidebar-mini-icon">D</span>
+                    <span class="sidebar-normal">Department</span>
+                  </a>
+                </li>
+                </li>
+                <li>
+                  <a href="{% url 'sreport' %}">
+                     <span class="sidebar-mini-icon">S</span>
+                    <span class="sidebar-normal">School</span>
+                  </a>
+                </li>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="{% if 'plostats' == segment %} active {% endif %}">
+            <a  data-toggle="collapse" href="#plostats">
+              <i class="tim-icons icon-puzzle-10"></i>
+              <p>PLO Stats
+                <b class="caret"></b>
+              </p>
+
+            </a>
+            <div class="collapse" id="plostats">
+              <ul class="nav">
+                <li>
+                  <a href="{% url 'pplostats' %}">
+                     <span class="sidebar-mini-icon">P</span>
+                    <span class="sidebar-normal">Program</span>
+                  </a>
+                </li>
+                </li>
+                <li>
+                  <a href="{% url 'dplostats' %}">
+                     <span class="sidebar-mini-icon">D</span>
+                    <span class="sidebar-normal">Department</span>
+                  </a>
+                </li>
+                </li>
+                <li>
+                  <a href="{% url 'splostats' %}">
+                     <span class="sidebar-mini-icon">S</span>
+                    <span class="sidebar-normal">School</span>
+                  </a>
+                </li>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="{% if 'plotable' == segment %} active {% endif %}">
+            <a href="{% url 'studentplotable' %}">
+              <i class="tim-icons icon-single-02"></i>
+              <p><strong>Student Wise PLO Table</strong></p>
+            </a>
+          </li>
+
+           <li>
+            <a href="{% url 'logoutpage' %}" >
+              <i class="tim-icons icon-user-run"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+
+                    
+        </ul>
+      </div>
+    </div>
+
