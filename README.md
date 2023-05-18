@@ -20,19 +20,22 @@ You need to have python installed in your system. Then you can do "python manage
 
 <table>
   <tr>
+    <th>Index</th>
     <th>Instructor</th>
     <th>Student</th>
     <th>Higher Authorities</th>
   </tr>
   <tr>
-    <td>Username: 4102</td>
-    <td>Username: 1822217</td>
-    <td>Username: 1111</td>
+    <td>Username</td>
+    <td>4102</td>
+    <td>1822217</td>
+    <td>1111</td>
   </tr>
   <tr>
-    <td>Password: group1234</td>
-    <td>Password: 1234</td>
-    <td>Password: group1234</td>
+    <td>Password</td>
+    <td>group1234</td>
+    <td>1234</td>
+    <td>group1234</td>
   </tr>
 </table>
 
