@@ -48,7 +48,7 @@ You need to have python installed in your system. Then you can do "python manage
   </tr>
   <tr>
     <td>Sharmin Islam Shroddha</td>
-    <td>Backend <br> Frontend <br> Connecting backend with frontend </td>
+    <td>Backend <br> Frontend <br> Report generation <br> Connecting backend with frontend </td>
   </tr>
   <tr>
     <td>Amit Mahmud</td>
