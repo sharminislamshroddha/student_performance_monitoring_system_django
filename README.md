@@ -52,12 +52,12 @@ You need to have python installed in your system. Then you can do "python manage
   </tr>
   <tr>
     <td>Amit Mahmud</td>
-    <td>Backend <br> Report generation <br> Transfer data from excel to mysql table</td>
+    <td>Backend <br> Report generation <br> Connecting backend with frontend <br> Transfer data from excel to mysql table</td>
   </tr>
   
   <tr>
     <td>Syeda Nazia Haque</td>
-    <td>Frontend <br> Transfer data from excel to mysql table <br> Report generation</td>
+    <td>Frontend <br> Report generation <br> Transfer data from excel to mysql table </td>
   </tr>
   <tr>
     <td>Shahriar Mahmud Anik</td>
