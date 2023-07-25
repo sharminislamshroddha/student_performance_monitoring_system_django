@@ -47,7 +47,7 @@ You need to have python installed in your system. Then you can do "python manage
     <th>Contribution</th>
   </tr>
   <tr>
-    <td>Sharmin Islam Shroddha</td>
+    <td>Mst. Sharmin Islam Shroddha</td>
     <td>Backend <br> Frontend <br> Report generation <br> Connecting backend with frontend </td>
   </tr>
   <tr>
