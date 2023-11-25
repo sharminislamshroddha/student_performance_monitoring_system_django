@@ -21,4 +21,31 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
 
     path('admin/', admin.site.urls),
+    path('login/', views.loginview, name='loginpage'),
+    path('logout', views.logoutview, name='logoutpage'),
+    path('', views.homeview, name='loginpage'),
+    path('userprofile',views.userprofile, name='profile'),
+
+    path('stplo', views.studentplo, name='stplo'),
+    path('studentplotable_st',views.studentplotable_st,name='studentplotable_st'),
+    path('plocomapping',views.plocomapping,name='plocomapping'),
+    path('assessmentdataentry',views.assessmentdataentry,name='assessmentdataentry'),
+    path('evaluationdataentry',views.evaluationdataentry,name='evaluationdataentry'),
+
+    path('studentplotable',views.studentplotable,name='studentplotable'),
+    path('programplotable',views.programplotable,name='programplotable'),
+
+    path('pcomp', views.programplocomp, name='pcomp'),
+    path('ucomp', views.universityplowiseper, name='ucomp'),
+    path('ciplo',views.instructorwiseploforcourse,name='ciplo'),
+    path('ccomp', views.courseplocomp, name='ccomp'),
+
+    path('pcper', views.courseploper, name='pcper'),
+    path('rad1', views.programploradar, name='rad1'),
+
+    path('studplo',views.hastudentplo,name='studplo'),
+    
+    path('rad2', views.radar2, name='rad2'),
+
+
 ]
