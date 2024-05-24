@@ -14,7 +14,7 @@ All of which includes 6 programs, 3 schools, 6 departments and 49 courses for ea
 
 ## How to Run
 
-You need to have python installed in your system. Then you can do "python manage.py runserver" to run the application.
+You need to have python installed in your system. Then open the whole project folder in VS Code and run "python manage.py runserver" in the VS Code terminal to run the application.
 
 ## Login
 
