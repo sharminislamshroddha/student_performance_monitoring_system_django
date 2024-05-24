@@ -1,0 +1,142 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} SPMS{% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block sidebar %}
+    {% include 'includes/hasidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card card-chart">
+            <div class="card-header ">
+                <h2 class="card-title">University Wise PLO Performance</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class ="row justify-content-center">
+    <form  id = "myform" action="ucomp" method="post">
+        {% csrf_token %}
+        <table class="form-table">
+            <tr>
+                <td class="form-field" style="padding-right:30px;">
+                    <label style="padding-right:5px;" for="uni">University</label>
+                       <select style = "width:120px;height:30px;" class ="form-select selectpicker"  data-live-search='true' id="uni" name="uni" form="myform">
+                           {% for i in ulist %}
+                               {% if i.universityID == selectedUni %}
+                                   <option value="{{i.universityID}}" selected="selected">{{i.universityID}}</option>
+                               {% else %}
+                                   <option value="{{i.universityID}}">{{i.universityID}}</option>
+                               {% endif %}
+
+                           {% endfor %}
+                       </select>
+               </td>
+
+                <td class="form-field" style="padding-right:30px;">
+                     <label style="padding-right:5px;" for="plos">PLOs</label>
+                    <select style = "width:120px;height:30px;" class ="form-select selectpicker"  data-live-search='true' id="plos" name="plos" form="myform"  multiple>
+                        {% for i in plist %}
+                            {% if i in selectedPlo %}
+                                <option value={{i}} selected="selected">{{i}}</option>
+                            {% else %}
+                                <option value={{i}}>{{i}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+                
+                <td style="text-align: center;" class="last-row mt-4" colspan="3">
+                    <button class="btn btn-primary">Enter</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div class="row mt-4" id ="chart" >
+    <div class="col-12" >
+        <div class="card card-chart">
+            <div class="card-header ">
+                <div class="row">
+                    <div class="col-sm-6 text-left">
+                        <h2 class="card-title">PLO Performance</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body" style="height:450px;" >
+                <div class="chart-area">
+                    <canvas id="ploperformance" height="100%"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<script>
+     var search = {{search}}
+
+    if(search==1){
+        document.getElementById("chart").style.display = "none";
+    }
+</script>
+<script>
+
+    var ctx = document.getElementById("ploperformance").getContext("2d");
+    colors =  ['#5CC8D7FF','#00539CFF','#EEA47FFF','#2C5F2D','#97BC62FF','#CE4A7EFF','#FC766AFF','#603F83FF','#006D77'
+        ,'#E29578','#264653','#81b29a','#8d99ae']
+
+        var data = {
+      labels: {{plop|safe}},
+      datasets: [{
+        label: "Attemped Students",
+        backgroundColor: '#d048b6',
+        fill:false,
+        borderColor: '#d048b6',
+        data: {{expected|safe}}
+        },
+        {
+        label: "Achieved Students",
+        backgroundColor: '#006aff',
+        fill:false,
+        borderColor: '#006aff',
+        data: {{actual|safe}}
+      }]
+    };
+
+    var myChart = new Chart(ctx, {
+          type: 'line',
+          data: data,
+          options: {
+              scales: {
+                  xAxes: [{
+                      gridLines: {
+                          display: false,
+                      }
+                  }],
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                      },
+                      type: 'linear',
+                  }]
+              },
+
+              responsive: true,
+              maintainAspectRatio: true
+          }
+    });
+</script>
+
+{% endblock javascripts %}
