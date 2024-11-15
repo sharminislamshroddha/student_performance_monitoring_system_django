@@ -75,8 +75,9 @@ You need to have python installed in your system. Then open the whole project fo
   
 </table>
 
+## Download the Project
 
-
-
+If there are any issues with the Git version, you can download the project from the following Google Drive link:  
+[Download the Project](https://drive.google.com/drive/folders/1K7rrC7msQJG913Fs-KMthFRd7S_kIOYg?usp=sharing)
 
 
